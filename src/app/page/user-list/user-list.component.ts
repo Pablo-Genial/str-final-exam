@@ -13,17 +13,20 @@ export class UserListComponent implements OnInit {
 
   users$: Observable<User[]> = this.userService.getAll();
 
+  // filter
   phrase: string = '';
   phraseKey: string = 'name';
   rawProductKeys: User = new User();
   productKeys = Object.getOwnPropertyNames(this.rawProductKeys)
 
 
+  // sorter
+  columnKey: string = '';
+  direction: string = '';
 
 
 
-
-  //   actionEvent: boolean = false;
+  //  actionEvent: boolean = false;
   // clickedElementID?: number = 0;
 
   constructor(
@@ -32,5 +35,30 @@ export class UserListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+
+  // sorter
+  onColumnSelect(key: string): void {
+    if (this.columnKey != key) {
+      this.direction = 'asc';
+    } else {
+      this.direction = this.swichDirectionValue();
+    }
+    this.columnKey = key;
+  }
+
+  swichDirectionValue(): any {
+    switch (this.direction) {
+      case 'asc':
+        return this.direction = 'dsc';
+      case 'dsc':
+        return this.direction = 'asc';
+      default:
+        return this.direction = 'asc';
+    }
+  }
+
+
 
 }
