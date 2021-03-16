@@ -32,13 +32,10 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // deleteItem(user: User): void {
-  //    this.userService.delete(user).subscribe(
-  //       () => {
-  //        this.userService.getAll();
-  //        }
-  //   );
-  // }
+  onDelete(user: User): void {
+    this.userService.remove(user);
+     document.location.reload();
+  }
 
 
 
