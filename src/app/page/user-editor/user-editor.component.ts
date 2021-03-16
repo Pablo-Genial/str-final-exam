@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { User } from 'src/app/model/user';
@@ -19,12 +19,14 @@ export class UserEditorComponent implements OnInit {
    * 1. If the params.id is 0: new User().
    * 2. If the params.id isn't 0: a user from the database based on its id.
    */
+  isNewUser: boolean = false;
   user$: Observable<User> = this.activatedRoute.params.pipe(
     switchMap( params => {
       if (Number(params.id) === 0) {
+        this.isNewUser = true;
         return of(new User());
       }
-
+      this.isNewUser = false;
       return this.userService.get(Number(params.id));
     })
   );
@@ -32,9 +34,22 @@ export class UserEditorComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
+  onFormSubmit(form: NgForm): void {
+
+    if(this.isNewUser == true) {
+      this.userService.create(form.value);
+    }
+    else {
+      this.userService.update(form.value);
+    }
+
+    this.router.navigate(['users']);
+  }
 }
+

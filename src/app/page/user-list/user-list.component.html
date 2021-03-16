@@ -14,34 +14,38 @@
 <div class="row">
   <div class="col-12 mt-2">
     <h2>User List</h2>
+    <button [routerLink]="['user/' + 0]" class="btn btn-primary btn-block">
+      Add new record
+    </button>
     <table class="table table-striped">
       <thead>
         <tr>
-            <th class="text-center" (click)="onColumnSelect('id')" class="table-order__th--id">Id
-              <i *ngIf="columnKey !== 'id'"><i class="fa fa-circle-o-notch"></i></i>
-              <i *ngIf="columnKey === 'id' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
-              <i *ngIf="columnKey === 'id' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
-            </th>
-            <th class="text-center" (click)="onColumnSelect('name')" class="table-order__th--id">Name
-              <i *ngIf="columnKey !== 'name'"><i class="fa fa-circle-o-notch"></i></i>
-              <i *ngIf="columnKey === 'name' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
-              <i *ngIf="columnKey === 'name' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
-            </th>
-            <th class="text-center" (click)="onColumnSelect('email')" class="table-order__th--id">Email
-              <i *ngIf="columnKey !== 'email'"><i class="fa fa-circle-o-notch"></i></i>
-              <i *ngIf="columnKey === 'email' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
-              <i *ngIf="columnKey === 'email' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
-            </th>
-            <th class="text-center" (click)="onColumnSelect('address')" class="table-order__th--id">Address
-              <i *ngIf="columnKey !== 'address'"><i class="fa fa-circle-o-notch"></i></i>
-              <i *ngIf="columnKey === 'address' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
-              <i *ngIf="columnKey === 'address' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
-            </th>
-            <th class="text-center" (click)="onColumnSelect('active')" class="table-order__th--id">Active
-              <i *ngIf="columnKey !== 'active'" class="material-icons align-text-bottom"><i class="fa fa-circle-o-notch"></i></i>
-              <i *ngIf="columnKey === 'activeid' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
-              <i *ngIf="columnKey === 'actived' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
-            </th>
+          <th class="text-center" (click)="onColumnSelect('id')" class="table-order__th--id">Id
+            <i *ngIf="columnKey !== 'id'"><i class="fa fa-circle-o-notch"></i></i>
+            <i *ngIf="columnKey === 'id' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
+            <i *ngIf="columnKey === 'id' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
+          </th>
+          <th class="text-center" (click)="onColumnSelect('name')" class="table-order__th--id">Name
+            <i *ngIf="columnKey !== 'name'"><i class="fa fa-circle-o-notch"></i></i>
+            <i *ngIf="columnKey === 'name' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
+            <i *ngIf="columnKey === 'name' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
+          </th>
+          <th class="text-center" (click)="onColumnSelect('email')" class="table-order__th--id">Email
+            <i *ngIf="columnKey !== 'email'"><i class="fa fa-circle-o-notch"></i></i>
+            <i *ngIf="columnKey === 'email' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
+            <i *ngIf="columnKey === 'email' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
+          </th>
+          <th class="text-center" (click)="onColumnSelect('address')" class="table-order__th--id">Address
+            <i *ngIf="columnKey !== 'address'"><i class="fa fa-circle-o-notch"></i></i>
+            <i *ngIf="columnKey === 'address' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
+            <i *ngIf="columnKey === 'address' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
+          </th>
+          <th class="text-center" (click)="onColumnSelect('active')" class="table-order__th--id">Active
+            <i *ngIf="columnKey !== 'active'" class="material-icons align-text-bottom"><i
+                class="fa fa-circle-o-notch"></i></i>
+            <i *ngIf="columnKey === 'activeid' && direction === 'asc'"><i class="fa fa-arrow-circle-down"></i></i>
+            <i *ngIf="columnKey === 'actived' && direction === 'dsc'"><i class="fa fa-arrow-circle-up"></i></i>
+          </th>
           <th></th>
         </tr>
       </thead>

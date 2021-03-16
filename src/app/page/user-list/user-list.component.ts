@@ -13,21 +13,17 @@ export class UserListComponent implements OnInit {
 
   users$: Observable<User[]> = this.userService.getAll();
 
-  // filter
+
   phrase: string = '';
   phraseKey: string = 'name';
   rawProductKeys: User = new User();
   productKeys = Object.getOwnPropertyNames(this.rawProductKeys)
 
 
-  // sorter
   columnKey: string = '';
   direction: string = '';
 
 
-
-  //  actionEvent: boolean = false;
-  // clickedElementID?: number = 0;
 
   constructor(
      private userService: UserService,
@@ -36,9 +32,16 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // deleteItem(user: User): void {
+  //    this.userService.delete(user).subscribe(
+  //       () => {
+  //        this.userService.getAll();
+  //        }
+  //   );
+  // }
 
 
-  // sorter
+
   onColumnSelect(key: string): void {
     if (this.columnKey != key) {
       this.direction = 'asc';
